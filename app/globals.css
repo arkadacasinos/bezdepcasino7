@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  body {
+    background-color: #0a0f1d;
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  /* Mangled class prefixes: b7x9- */
+  .b7x9-container {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .b7x9-glass {
+    background: rgba(18, 26, 47, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .b7x9-glow-blue {
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.35);
+  }
+  .b7x9-glow-gold {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+  }
+  .b7x9-text-gradient-blue {
+    background: linear-gradient(180deg, #ffffff 0%, #60a5fa 55%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .b7x9-text-gradient-gold {
+    background: linear-gradient(180deg, #fffbeb 0%, #fbbf24 60%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .b7x9-scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .b7x9-scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Pure CSS drawer support */
+  @media (max-width: 767px) {
+    #mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    #mobile-menu:target {
+      transform: translateX(0);
+    }
+    .b7x9-scrim {
+      display: none;
+    }
+    body:has(#mobile-menu:target) .b7x9-scrim {
+      display: block;
+    }
+  }
+}
